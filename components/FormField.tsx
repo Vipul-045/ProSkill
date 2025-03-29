@@ -1,11 +1,17 @@
 import React from 'react'
+import { Controller, FieldValues, Control, Path } from 'react-hook-form'
 
-const FormField = () => {
+interface FormFieldProps<T extends FieldValues> {
+    control: Control<T>;
+    name: string;
+    label: string;
+    placeholder: string;
+    type?: string;
+    }
+
+const FormField = ({control, name, label, placeholder, type='text'}: FormFieldProps<T>) => {
   return (
-    <div><FormField
-    control={form.control}
-    name="username"
-    render={({ field }) => (
+    <Controller name={name} control={control} render={({ field }) => (
         <FormItem>
             <FormLabel>Username</FormLabel>
             <FormControl>
@@ -16,9 +22,8 @@ const FormField = () => {
             </FormDescription>
             <FormMessage />
         </FormItem>
-    )}
-/></div>
-  )
+    )} />    )
+
 }
 
 export default FormField
