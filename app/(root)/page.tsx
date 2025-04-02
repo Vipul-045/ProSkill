@@ -6,4 +6,4 @@ const page = () => {
     '>Home Page</h1></>  )
 }
 
-export default page
+export default page  
