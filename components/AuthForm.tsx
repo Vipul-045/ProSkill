@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import { Form } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
 import Image from 'next/image'
 import Link from "next/link"
 import { toast } from "sonner"
@@ -33,8 +32,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
         },
     })
 
-    // 2. Define a submit handler.
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    const onSubmit = async (data: z.infer<typeof formSchema>) => {
         try {
             if(type === 'sign-up'){
                 toast.success("Account created successfully. Please sign in.");
